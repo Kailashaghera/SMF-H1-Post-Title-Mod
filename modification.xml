@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE modification SYSTEM "http://www.simplemachines.org/xml/modification">
+<modification xmlns="http://www.simplemachines.org/xml/modification" xmlns:smf="http://www.simplemachines.org/">
+
+	<id>Kailash1:H1PostTitle</id>
+
+	<version>1.0.0</version>
+	<file name="$themedir/Display.template.php">
+		<operation>
+			<search position="before"><![CDATA[	// Show the page index... "Pages: [1]".]]></search>
+			<add><![CDATA[
+		
+		// Add H1 tag for topic title for SEO
+echo '<div class="h1section"><h1 class="h1tagpost_whd">'.$context['subject'].'</h1></div>';
+]]></add>
+		</operation>
+	</file>
+	<file name="$themedir/index.template.php">
+		<operation>
+			<search position="after"><![CDATA[	// Show the load time?]]></search>
+			<add><![CDATA[               echo '<ul class="reset"><li class="copyright">SEO powered by <a href="http://www.webhostingdiscussion.net/smf-h1-post-title-mod.htm" target="_blank">SMF H1 Post Title</a></li></ul>';]]></add>
+		</operation>
+	</file>
+    <file name="$themedir/css/index.css">
+                <operation>
+                        <search position="end"></search>
+                        <add><![CDATA[
+.h1tagpost_whd 
+{
+	line-height: 45px;
+	font-size: 1.8em;
+	font-family: Geneva, verdana, sans-serif;
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+.h1section 
+{ 
+overflow: hidden; 
+}
+]]></add>
+                </operation>
+        </file>
+
+</modification>
